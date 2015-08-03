@@ -1,12 +1,14 @@
 class PhotosController < ApplicationController
 
   def index
-    @photos = Photo.all.sort_by {|photo| photo[:created_at]}.reverse.first(12)
-    @random_photo = Photo.find(1 + Random.rand(@photos.length))
+    # @photos = Photo.all.sort_by {|photo| photo[:created_at]}.reverse.first(12)
+    @random_photo = Photo.find(1 + Random.rand(Photo.all.length))
+    @photos = Photo.order("created_at DESC").paginate(page: params[:page], per_page: 12)
   end
 
   def show
     @photo = Photo.find(params[:id])
+    @comments = @photo.comments.all
   end
 
   def new

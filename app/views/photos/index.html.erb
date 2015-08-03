@@ -13,18 +13,16 @@
         <%= link_to image_tag(photo.photo_url, size: "125x125"), photo %>
       </div>
     <% end %>
+    <div class="pagination">
+      <%= will_paginate @photos %>
+    </div>
   </div>
 
-  <div class="pagination">
-    <ul>
-      <li><<</li>
-      <li><</li>
-      <li>Random</li>
-      <li>></li>
-      <li>>></li>
-
-    </ul>
-  </div>
 
 
 </div>  <!-- end of container div -->
+
+<footer>
+  <p>Contact</p>
+  <p>Twitter</p>
+</footer>
