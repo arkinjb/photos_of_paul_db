@@ -1,5 +1,24 @@
 == README
 
+# Photos of Paul
+* Photos of Paul is an Instagram type website for photos of Paul from WDI (he knows about it and is okay with it).
+* Users will be able to upload their pictures of Paul and comment on existing pictures.
+* The idea came from a kind of but, not totally, serious conversation about needing filler pictures for seed data.
+
+# User Stories
+
+* I want to sign up for a new account
+* I want to log in to my account
+* I want to upload a photo
+* I want to add a title to my photo
+* I want to comment on any photo
+* I want to see other uploaded photos
+* I want to see the photos even if I'm not logged in
+* I want to have a profile page that lists my uploads
+* I want to edit/delete my own comments
+* I want to tag or favorite specific photos
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
