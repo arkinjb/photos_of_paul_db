@@ -1,0 +1,7 @@
+<div class="photo_page" >
+  <h2><%= @photo.title %></h2>
+  <%= image_tag @photo.photo_url %>
+  <p>Uploaded by name on date</p>
+  <p>Copy photo url</p>
+  <%= link_to "Edit Photo", edit_photo_path(@photo) %>
+</div>

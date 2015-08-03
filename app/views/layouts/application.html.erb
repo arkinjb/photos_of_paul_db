@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PhotosOfPaulDb</title>
+  <title>Photos Of Paul Club</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <header>
+        <h1><%= link_to "Photos of Paul", root_url %></h1>
+        <nav>
+            <%= link_to "Upload", new_photo_path %>
+            <%= link_to "Profile", "/" %>
+            <%= link_to "Sign In", "/" %>
+        </nav>
+    </header>
 
 <%= yield %>
 
+
+    <footer>
+      <p>Contact</p>
+      <p>Twitter</p>
+    </footer>
 </body>
 </html>
