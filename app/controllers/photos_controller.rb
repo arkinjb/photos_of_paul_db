@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  load_and_authorize_resource
 
   def index
     # @photos = Photo.all.sort_by {|photo| photo[:created_at]}.reverse.first(12)
@@ -7,27 +8,34 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
+
     @comments = @photo.comments.all
+
   end
 
   def new
-    @photo = Photo.new
+
   end
 
   def create
     @photo = Photo.create!(photo_params.merge({user_id: current_user.id}))
+
     redirect_to photo_path(@photo)
   end
 
   def edit
-    @photo = Photo.find(params[:id])
+
   end
 
   def update
-    @photo = Photo.find(params[:id])
+
     @photo.update(photo_params)
     redirect_to photo_path(@photo)
+  end
+
+  def destroy
+    @photo.destroy
+    redirect_to root_url
   end
 
   private

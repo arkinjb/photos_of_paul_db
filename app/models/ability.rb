@@ -2,6 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+
+    can :read, [Photo, Comment]
+
+    #user must be logged in
+    if user
+      can :create, [Photo, Comment]
+      can [:update, :destroy], [Photo, Comment], :user_id => user.id
+    end
+
+
   end
     # Define abilities for the passed in user here. For example:
     #
