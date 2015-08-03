@@ -1,0 +1,18 @@
+<h1>Sign In</h1>
+
+<h2><%= flash[:sign_in_message] %></h2>
+
+<div class="signin_form">
+
+  <%= form_for(:session, url: signin_path) do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Sign in" %>
+  <% end %>
+
+  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>

@@ -11,7 +11,7 @@
     <% @comments.each do |comment| %>
 
         <li>
-          <%= comment.content %> by 
+          <%= comment.content %> by <%= link_to comment.user.username, user_path(comment.user.id) %>
           <%= link_to "Edit Comment", edit_photo_comment_path(@photo, comment) %>
         </li>
 

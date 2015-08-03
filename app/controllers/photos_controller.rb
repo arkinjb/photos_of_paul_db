@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   def index
     # @photos = Photo.all.sort_by {|photo| photo[:created_at]}.reverse.first(12)
     @random_photo = Photo.find(1 + Random.rand(Photo.all.length))
-    @photos = Photo.order("created_at DESC").paginate(page: params[:page], per_page: 12)
+    @photos = Photo.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -16,7 +16,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.create!(photo_params)
+    @photo = Photo.create!(photo_params.merge({user_id: current_user.id}))
     redirect_to photo_path(@photo)
   end
 

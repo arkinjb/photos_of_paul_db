@@ -1,0 +1,10 @@
+<h1>User Profile</h1>
+
+<h2><%= flash[:sign_in_message] %></h2>
+
+<div class="user_info">
+  <p>Username: <%= @user.username %></p>
+  <p>Name: <%= @user.name %></p>
+  <p>Joined: <%= @user.created_at %></p>
+
+</div>

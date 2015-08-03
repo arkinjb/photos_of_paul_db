@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  # get '/signin', to: 'users#signin_prompt'
-  # post '/signin', to: 'users#signin'
-  # get '/signout', to: 'users#signout'
+  get 'signup', to: 'users#new'
+  get 'signin', to: 'sessions#new'
+  post 'signin', to: 'sessions#create'
+  delete 'signout', to: 'sessions#destroy'
 
 
 end

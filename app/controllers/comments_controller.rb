@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @photo.comments.create!(comment_params)
+    @comment = @photo.comments.create!(comment_params.merge({user_id: current_user.id}))
     redirect_to photo_path(@photo)
   end
 
