@@ -1,0 +1,11 @@
+
+<%= form_for [@photo, @comment] do |f| %>
+  <%= f.label :content, "Edit your comment" %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= form_for [@photo, @comment], method: :delete do |f| %>
+  <%= f.submit "Delete Comment" %>
+<% end %>
