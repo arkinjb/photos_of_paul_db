@@ -1,12 +1,5 @@
 class PhotosController < ApplicationController
   load_and_authorize_resource
-  before_filter :check_for_cancel, :only => [:show]
-
-  def check_for_cancel
-    if params[:commit] == "Cancel"
-      redirect_to root_url
-    end
-  end
 
   def index
     @random_photo = Photo.find(Photo.all.map(&:id).sample)
@@ -17,7 +10,7 @@ class PhotosController < ApplicationController
     else
       @photos = paginate_order(Photo.all)
     end
-    
+
   end
 
   def show
@@ -50,7 +43,7 @@ class PhotosController < ApplicationController
   end
 
   def paginate_order(query)
-    query.order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    query.order("created_at DESC").paginate(page: params[:page], per_page: 12)
   end
 
   private

@@ -8,23 +8,27 @@
 </head>
 <body>
     <header>
-        <h1><%= link_to "Photos of Paul", root_url %></h1>
-        <nav>
-          <% if signed_in? %>
-            <%= link_to "Upload", new_photo_path %>
-            <%= link_to "Profile", current_user %>
-            <%= link_to "Sign Out", signout_path, method: :delete %>
-          <% else %>
-            <%= link_to "Sign In", signin_path %>
-            <%= link_to "Sign Up", signup_path %>
-          <% end %>
-        </nav>
+        <h1><%= link_to "Photos of Pauls", root_url %></h1>
+        <div class="header_links" >
+          <nav>
+            <% if signed_in? %>
+              <%= link_to "Upload", new_photo_path %>
+              <%= link_to "Profile", current_user %>
+              <%= link_to "Sign Out", signout_path, method: :delete %>
+            <% else %>
+              <%= link_to "Sign In", signin_path %>
+              <%= link_to "Sign Up", signup_path %>
+            <% end %>
+          </nav>
 
-        <%= form_tag(photos_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Photos" %>
-          <%= submit_tag "Search", :name => nil %>
-        <% end %>
-          <%= button_to "Clear", photos_path, :method => "get" %>
+          <div class="search_form">
+            <%= form_tag(photos_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Search Photos" %>
+              <%= submit_tag "Search", :name => nil %>
+              <%= link_to "Clear", root_url, class: "button_link" %>
+            <% end %>
+          </div>
+        </div>
     </header>
 
 <%= yield %>

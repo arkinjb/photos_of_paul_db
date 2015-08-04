@@ -20,8 +20,54 @@
    padding: 0;
  }
 
+/*application layout css*/
 header {
   border: 2px solid blue;
+  height: 100px;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+header h1 {
+  font-size: 40px;
+  font-family: Verdana, sans-serif;
+  /*margin: .25em 1em;*/
+  width: 70%;
+}
+
+.header_links {
+  float: right;
+  /*padding-top: .75em;*/
+  /*margin-right: 3em;*/
+}
+
+nav a {
+  padding-right: .5em;
+}
+
+.search_form {
+  padding-top: .35em;
+}
+
+
+
+a {
+  text-decoration: none;
+}
+
+.button_link, input[type=submit] {
+  appearance: button;
+  -moz-appearance: button;
+  -webkit-appearance: button;
+  text-decoration: none;
+  font: menu;
+  color: ButtonText;
+  display: inline-block;
+  padding: 2px 8px;
 }
 
 .container{
@@ -31,20 +77,24 @@ header {
 /*main page css*/
 .main_photo {
   border: 2px solid red;
-  width: 55%;
+  width: 56%;
   text-align: center;
   border-radius: 8px;
-  background-color: #eee;
-  box-shadow: 0px 3px 5px 0px #B7B3B5;
+  /*background-color: #eee;
+  box-shadow: 0px 3px 5px 0px #B7B3B5;*/
   padding: 10px;
   display: inline-block;
+}
+
+.main_photo h2 {
+  font-size: 30px;
+  margin-bottom: .25em;
 }
 
 .main_photo img {
   max-width: 70%;
   margin: auto;
-  height: 500px;
-  width: 400px;
+  max-height: 500px;
 }
 
 .thumbnails_container {
@@ -53,7 +103,7 @@ header {
   padding: 10px;
   display: inline-block;
   vertical-align: top;
-  /*margin: 2em auto 0 auto;*/
+  text-align: center;
 }
 
 .thumbnail {
