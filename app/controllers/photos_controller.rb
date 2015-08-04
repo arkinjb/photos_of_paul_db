@@ -9,8 +9,7 @@ class PhotosController < ApplicationController
   end
 
   def index
-    # @photos = Photo.all.sort_by {|photo| photo[:created_at]}.reverse.first(12)
-    @random_photo = Photo.find(1 + Random.rand(Photo.all.length))
+    @random_photo = Photo.find(Photo.all.map(&:id).sample)
     @photos = paginate_order(Photo)
 
     if params[:search]
@@ -18,6 +17,7 @@ class PhotosController < ApplicationController
     else
       @photos = paginate_order(Photo.all)
     end
+    
   end
 
   def show
