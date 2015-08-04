@@ -8,9 +8,7 @@
   </div>
 
   <div class="thumbnails_container">
-    <div class="pagination">
-      <%= will_paginate @photos %>
-    </div>
+    <%= will_paginate @photos %>
     <% @photos.each do |photo| %>
       <div class="thumbnail">
         <%= link_to image_tag(photo.photo_url, size: "125x125"), photo %>

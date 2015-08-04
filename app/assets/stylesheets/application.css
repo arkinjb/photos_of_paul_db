@@ -52,6 +52,7 @@ header {
   width: 40%;
   padding: 10px;
   display: inline-block;
+  vertical-align: top;
   /*margin: 2em auto 0 auto;*/
 }
 
@@ -72,7 +73,9 @@ footer {
  .pagination {
    text-align: center;
    padding: 0.3em;
-   cursor: default; }
+   cursor: default;
+   margin-bottom: .5em
+ }
    .pagination a, .pagination span, .pagination em {
      padding: 0.2em 0.5em; }
    .pagination .disabled {
