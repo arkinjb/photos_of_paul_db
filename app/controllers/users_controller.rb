@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favorite_photos = @user.favorite_photos.all
+    @photos = Photo.all
   end
 
 

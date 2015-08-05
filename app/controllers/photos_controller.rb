@@ -46,6 +46,20 @@ class PhotosController < ApplicationController
     query.order("created_at DESC").paginate(page: params[:page], per_page: 12)
   end
 
+  def add_favorite
+    @user = current_user
+    FavoritePhoto.create(user: current_user, photo_id: params[:id])
+    redirect_to @photo
+  end
+
+  def remove_favorite
+    @user = current_user
+    entry = FavoritePhoto.where(user: current_user, photo_id: params[:id])
+    entry.destroy_all
+    redirect_to @photo
+  end
+
+
   private
 
   def photo_params

@@ -9,6 +9,7 @@ class Ability
     if user
       can :create, [Photo, Comment]
       can [:update, :destroy], [Photo, Comment], :user_id => user.id
+      can [:add_favorite, :remove_favorite], Photo
     end
 
 

@@ -8,3 +8,13 @@
   <p><%= @user.created_at.strftime("Joined on %b %d, %Y") %></p>
 
 </div>
+
+<div class="user_fav_list" >
+  <ul>
+    <% @favorite_photos.each do |favorite_photo| %>
+      <li>
+        <%= link_to "#{@photos.find(favorite_photo.photo_id).title}", photo_path(favorite_photo.photo_id) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

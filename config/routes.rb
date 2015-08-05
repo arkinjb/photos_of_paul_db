@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   root to: "photos#index"
 
   resources :users
-
+  
   resources :photos do
     resources :comments
+    member do
+        post 'add_favorite'
+        post 'remove_favorite'
+    end
   end
 
   get 'signup', to: 'users#new'

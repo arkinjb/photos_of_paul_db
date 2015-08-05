@@ -3,6 +3,11 @@
   <%= image_tag @photo.photo_url %>
   <p>Uploaded by <%= link_to @photo.user.username, user_path(@photo.user.id) %> on <%= @photo.created_at.strftime(" %b %d, %Y") %></p>
   <p>Copy photo url</p>
+  <% if current_user.favorite_photos.exists?(photo_id: @photo.id) %>
+    <%= link_to "Unfavorite", remove_favorite_photo_path(@photo), method: :post %>
+  <% else %>
+    <%= link_to "Favorite", add_favorite_photo_path(@photo), method: :post %>
+  <% end %>
 
   <% if can? :update, @photo %>
     <%= link_to "Edit Photo", edit_photo_path(@photo) %>
