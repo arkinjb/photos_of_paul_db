@@ -1,13 +1,19 @@
 <div class="photo_page" >
-  <h2><%= @photo.title %></h2>
+  <div class="photo_header" >
+    <h2><%= @photo.title %>
+      <span>
+        <% if current_user.favorite_photos.exists?(photo_id: @photo.id) %>
+          <%= link_to image_tag("http://findicons.com/files/icons/2159/systematrix/128/favorites.png", size: "25x25"), remove_favorite_photo_path(@photo), method: :post %>
+        <% else %>
+          <%= link_to image_tag("https://cdn3.iconfinder.com/data/icons/token/128/Star-Favorites.png", size: "25x25"), add_favorite_photo_path(@photo), method: :post %>
+        <% end %>
+      </span>
+    </h2>
+  </div>
+
   <%= image_tag @photo.photo_url %>
   <p>Uploaded by <%= link_to @photo.user.username, user_path(@photo.user.id) %> on <%= @photo.created_at.strftime(" %b %d, %Y") %></p>
   <p>Copy photo url</p>
-  <% if current_user.favorite_photos.exists?(photo_id: @photo.id) %>
-    <%= link_to "Unfavorite", remove_favorite_photo_path(@photo), method: :post %>
-  <% else %>
-    <%= link_to "Favorite", add_favorite_photo_path(@photo), method: :post %>
-  <% end %>
 
   <% if can? :update, @photo %>
     <%= link_to "Edit Photo", edit_photo_path(@photo) %>
@@ -19,7 +25,7 @@
     <% @comments.each do |comment| %>
 
         <li>
-          <%= comment.content %> by <%= link_to comment.user.username, user_path(comment.user.id) %> <span><%= time_ago_in_words(comment.created_at) %></span> ago
+          <%= comment.content %> - <%= link_to comment.user.username, user_path(comment.user.id) %> <span class="time_ago"><%= time_ago_in_words(comment.created_at) %> ago</span>
 
           <% if can? :update, comment %>
             <%= link_to "Edit Comment", edit_photo_comment_path(@photo, comment) %>
@@ -27,16 +33,12 @@
         </li>
 
     <% end %>
-
-
-    <% if can? :create, Comment %>
-      <%= form_for [@photo, Comment.new] do |f| %>
-        <%= f.label :content, "Add a New Comment" %>
-        <%= f.text_area :content %>
-
-        <%= f.submit %>
-      <% end %>
-    <% end %>
-
   </ul>
+
+    <div class="new_comment_container" >
+      <% if can? :create, Comment %>
+        <%= render "comments/form" %>
+      <% end %>
+    </div>
+
 </div> <!-- end of comment container div -->

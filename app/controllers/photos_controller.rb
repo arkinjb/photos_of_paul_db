@@ -15,6 +15,7 @@ class PhotosController < ApplicationController
 
   def show
     @comments = @photo.comments.all
+    @comment = Comment.new
   end
 
   def new

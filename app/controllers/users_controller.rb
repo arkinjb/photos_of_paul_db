@@ -18,9 +18,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @favorite_photos = @user.favorite_photos.all
+    @favorite_photos = @user.favorite_photos.all.order("created_at DESC").paginate(page: params[:page], per_page: 40)
     @photos = Photo.all
   end
+
 
 
   private

@@ -1,0 +1,10 @@
+<%= form_for [@photo, @comment] do |f| %>
+<% if @comment.new_record? %>
+  <%= f.label :content, "Add a New Comment" %>
+<% else %>
+  <%= f.label :content, "Edit Your Comment" %>
+<% end %>
+<%= f.text_area :content %>
+
+<%= f.submit %>
+<% end %>

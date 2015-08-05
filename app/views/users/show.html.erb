@@ -1,20 +1,20 @@
-<h1>User Profile</h1>
 
 <h2><%= flash[:sign_in_message] %></h2>
 
 <div class="user_info">
-  <p>Username: <%= @user.username %></p>
+  <h1><%= @user.username %>'s Profile</h1>
   <p>Name: <%= @user.name %></p>
-  <p><%= @user.created_at.strftime("Joined on %b %d, %Y") %></p>
+  <p><%= @user.created_at.strftime("Joined: %b %d, %Y") %></p>
 
 </div>
 
 <div class="user_fav_list" >
-  <ul>
-    <% @favorite_photos.each do |favorite_photo| %>
-      <li>
-        <%= link_to "#{@photos.find(favorite_photo.photo_id).title}", photo_path(favorite_photo.photo_id) %>
-      </li>
-    <% end %>
-  </ul>
+  <h2>Favorite Photos</h2>
+
+  <%= will_paginate @favorite_photos %>
+  <% @favorite_photos.each do |favorite_photo| %>
+    <div class="thumbnail">
+      <%= link_to image_tag(@photos.find(favorite_photo.photo_id).photo_url), photo_path(favorite_photo.photo_id) %>
+    </div>
+  <% end %>
 </div>

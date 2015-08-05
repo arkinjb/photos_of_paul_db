@@ -1,7 +1,11 @@
-<h2>Edit Photo</h2>
+<div class="form_container">
 
-<%= render "form" %>
+  <h2>Edit Photo</h2>
 
-<%= form_for @photo, method: :delete do |f| %>
-  <%= f.submit "Delete Photo" %>
-<% end %>
+  <%= render "form" %>
+
+  <%= form_for @photo, method: :delete do |f| %>
+    <%= f.submit "Delete Photo" %>
+  <% end %>
+
+</div>

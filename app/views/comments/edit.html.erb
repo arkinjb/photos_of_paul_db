@@ -1,11 +1,11 @@
+<div class="form_container">
 
-<%= form_for [@photo, @comment] do |f| %>
-  <%= f.label :content, "Edit your comment" %>
-  <%= f.text_area :content %>
+  <h2>Edit Comment</h2>
 
-  <%= f.submit %>
-<% end %>
+  <%= render "form" %>
 
-<%= form_for [@photo, @comment], method: :delete do |f| %>
-  <%= f.submit "Delete Comment" %>
-<% end %>
+  <%= form_for [@photo, @comment], method: :delete do |f| %>
+    <%= f.submit "Delete Comment" %>
+  <% end %>
+
+</div>
