@@ -4,6 +4,11 @@ class Ability
   def initialize(user)
 
     can :read, [Photo, Comment]
+    
+    user ||= User.new # guest user (not logged in)
+    if user.admin?
+      can :manage, :all
+    end
 
     #user must be logged in
     if user
@@ -11,6 +16,7 @@ class Ability
       can [:update, :destroy], [Photo, Comment], :user_id => user.id
       can [:add_favorite, :remove_favorite], Photo
     end
+
 
 
   end

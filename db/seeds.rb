@@ -2,10 +2,10 @@ User.destroy_all
 Photo.destroy_all
 Comment.destroy_all
 
-jared = User.create!(username: "jared", password_digest: "#{User.digest('jared')}", name: "Jared A", email: "jared@yahoo.com")
-bob = User.create!(username: "bob", password_digest: "#{User.digest('bob')}", name: "Bob Smith", email: "bob@yahoo.com")
-sally = User.create!(username: "sally", password_digest: "#{User.digest('sally')}", name: "Sally Johnson", email: "sally@yahoo.com")
-dylan = User.create!(username: "dylan", password_digest: "#{User.digest('joe')}", name: "Dylan Beekler", email: "dylan@yahoo.com")
+jared = User.create!(username: "jared", password_digest: "#{User.digest('jared')}", name: "Jared A", admin: true, email: "jared@yahoo.com")
+bob = User.create!(username: "bob", password_digest: "#{User.digest('bob')}", name: "Bob Smith", admin: false, email: "bob@yahoo.com")
+sally = User.create!(username: "sally", password_digest: "#{User.digest('sally')}", name: "Sally Johnson", admin: false, email: "sally@yahoo.com")
+dylan = User.create!(username: "dylan", password_digest: "#{User.digest('joe')}", name: "Dylan Beekler", admin: false, email: "dylan@yahoo.com")
 
 rudd = jared.photos.create!(title: "Paul Rudd", photo_url: "http://www.circlecinema.com/wp-content/uploads/2012/12/paul-rudd-0.jpg")
 biya = jared.photos.create!(title: "Paul Biya", photo_url: "https://pbs.twimg.com/profile_images/494451373396611072/pOOKc53J.jpeg")
