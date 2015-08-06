@@ -3,6 +3,12 @@
   <p>Name: <%= @user.name %></p>
   <p><%= @user.created_at.strftime("Joined: %b %d, %Y") %></p>
 
+  <% if can? :destroy, @user %>
+    <%= form_for @user, method: :delete do |f| %>
+      <%= f.submit "Delete User" %>
+    <% end %>
+  <% end %>
+
 </div>
 
 <div class="user_fav_list" >

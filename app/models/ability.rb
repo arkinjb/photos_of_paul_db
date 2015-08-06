@@ -3,15 +3,16 @@ class Ability
 
   def initialize(user)
 
-    can :read, [Photo, Comment]
-
-    user ||= User.new # guest user (not logged in)
+    user ||= User.new # creates new record for guest user (not logged in)
     if user.admin?
       can :manage, :all
-    else
+    elsif !user.username.nil? # if user is logged in
+      can :read, :all
       can :create, [Photo, Comment]
       can [:update, :destroy], [Photo, Comment], :user_id => user.id
       can [:add_favorite, :remove_favorite], Photo
+    else # guest user
+      can :read, [Photo, Comment]
     end
 
 

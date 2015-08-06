@@ -25,6 +25,8 @@
   <%= f.label :password_confirmation, "Confirm Password" %>
   <%= f.password_field :password_confirmation %>
 
+  <%= f.hidden_field :admin, value: false %>
+
   <%= f.submit "Create Account" %>
 <% end %>
 
