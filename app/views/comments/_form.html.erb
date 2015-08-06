@@ -5,6 +5,7 @@
   <%= f.label :content, "Edit Your Comment" %>
 <% end %>
 <%= f.text_area :content %>
+<%= f.hidden_field :photo_id, value: @photo.id %>
 
 <%= f.submit %>
 <% end %>

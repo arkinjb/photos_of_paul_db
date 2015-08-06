@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.create!(photo_params.merge({user_id: current_user.id}))
+    @photo = current_user.photos.create!(photo_params)
     redirect_to photo_path(@photo)
   end
 
