@@ -84,6 +84,10 @@ h2 {
   font-size: 40px;
 }
 
+footer {
+  height: 50px;
+}
+
 /*main page css*/
 .main_photo {
   /*border: 2px solid red;*/

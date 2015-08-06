@@ -38,7 +38,7 @@
   </ul>
 
     <div class="new_comment_container" >
-      <% if can? :create, Comment %>
+      <% if current_user %>
         <%= render "comments/form" %>
       <% end %>
     </div>

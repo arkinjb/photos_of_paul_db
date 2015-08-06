@@ -8,18 +8,15 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @photo.comments.create!(comment_params.merge({user_id: current_user.id}))
-    authorize! :create, @comment
     redirect_to photo_path(@photo)
   end
 
   def edit
     @comment = Comment.find(params[:id])
-    authorize! :update, @comment
   end
 
   def update
     @comment = Comment.find(params[:id])
-    authorize! :update, @comment
     @comment.update(comment_params)
     redirect_to photo_path(@photo)
   end
