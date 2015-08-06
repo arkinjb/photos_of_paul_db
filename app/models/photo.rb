@@ -7,4 +7,6 @@ class Photo < ActiveRecord::Base
     where("title ILIKE ?", "%#{query}%")
   end
 
+  mount_uploader :file, FileUploader
+
 end
