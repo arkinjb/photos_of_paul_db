@@ -3,7 +3,7 @@
   <div class="main_photo">
     <%= link_to photo_path(@random_photo) do %>
     <h2><%= @random_photo.title %></h2>
-    <%= image_tag @random_photo.photo_url %>
+    <%= image_tag @random_photo.image.url %>
     <% end %>
   </div>
 
@@ -11,7 +11,7 @@
     <%= will_paginate @photos %>
     <% @photos.each do |photo| %>
       <div class="thumbnail">
-        <%= link_to image_tag(photo.photo_url), photo %>
+        <%= link_to image_tag(photo.image.url), photo %>
       </div>
     <% end %>
   </div>

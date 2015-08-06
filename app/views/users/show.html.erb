@@ -17,7 +17,7 @@
   <%= will_paginate @favorite_photos %>
   <% @favorite_photos.each do |favorite_photo| %>
     <div class="thumbnail">
-      <%= link_to image_tag(@photos.find(favorite_photo.photo_id).photo_url), photo_path(favorite_photo.photo_id) %>
+      <%= link_to image_tag(@photos.find(favorite_photo.photo_id).image.url), photo_path(favorite_photo.photo_id) %>
     </div>
   <% end %>
 </div>

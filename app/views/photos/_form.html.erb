@@ -5,16 +5,14 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.label :photo_url %>
-  <%= f.text_field :photo_url %>
-
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-
   <% if @photo.new_record? %>
+
+    <%= f.label :image %>
+    <%= f.file_field :image %>
     <%= f.submit "Upload Photo" %>
+
   <% else %>
-    <%= f.submit "Edit Photo" %>
+    <%= f.submit "Edit Title" %>
   <% end %>
 
 <% end %>
