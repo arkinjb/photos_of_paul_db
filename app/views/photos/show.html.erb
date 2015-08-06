@@ -13,7 +13,7 @@
     </h2>
   </div>
 
-  <%= image_tag @photo.photo_url %>
+  <%= image_tag (@photo.photo_url || @photo.image.url) %>
   <p>Uploaded by <%= link_to @photo.user.username, user_path(@photo.user.id) %> on <%= @photo.created_at.strftime(" %b %d, %Y") %></p>
   <!-- <p>Copy photo url</p> -->
 
