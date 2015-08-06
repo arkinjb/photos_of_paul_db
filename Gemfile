@@ -27,7 +27,7 @@ gem 'bcrypt'
 gem 'will_paginate', '~> 3.0.6'
 gem 'cancancan'
 gem 'zeroclipboard-rails'
-gem 'carrierwave'
+gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 

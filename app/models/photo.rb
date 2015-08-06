@@ -3,9 +3,7 @@ class Photo < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :favorite_photos, dependent: :destroy
 
-  has_attached_file :image {
-    :url => "photos/images/000/000/016/original/:image_file_name"
-  }
+  has_attached_file :image 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   def self.search(query)
