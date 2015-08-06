@@ -2,8 +2,8 @@
   <div class="photo_header" >
     <h2><%= @photo.title %>
       <span>
-        <% if can? :add_favorite, @photo %>
-          <% if current_user.favorite_photos.exists?(photo_id: @photo.id) %>
+        <% if current_user %> <!-- returns false if user not logged in -->
+          <% if current_user.favorite_photos.exists?(photo_id: @photo.id) %> <!-- show either favorite or unfavorite link and icon -->
             <%= link_to image_tag("http://findicons.com/files/icons/2159/systematrix/128/favorites.png", size: "25x25"), remove_favorite_photo_path(@photo), method: :post %>
           <% else %>
             <%= link_to image_tag("https://cdn3.iconfinder.com/data/icons/token/128/Star-Favorites.png", size: "25x25"), add_favorite_photo_path(@photo), method: :post %>
