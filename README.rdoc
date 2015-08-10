@@ -17,31 +17,43 @@
 * I want to have a profile page that lists my uploads
 * I want to edit/delete my own comments
 * I want to tag or favorite specific photos
+* I want to search by key word
+* As an admin, I want to edit/delete all photos and comments.
+* As an admin, I want to delete users.
 
+# Technology used
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby on Rails
+* Hand rolled user authentication (from railstutorial.org)
+* Cancancan gem for user authorization
+* will_paginate gem for thumbnail pagination
+* Paperclip gem and Amazon AWS for photo upload and storage
+* Figaro gem
+* Bcrypt gem for password hashing
+* Handrolled css - used flexbox to center the header
+* Deployed on Heroku
 
-Things you may want to cover:
+# Approach
 
-* Ruby version
+* Started with basic crud functions for two models - post and user
+* Used photo URL to add photo
+* added basic styling and containers to position elements
+* Added comments model and relevant crud functions
+* Hand rolled user authentication - added login/logout/signup - used Sessions controller and helper module
+* Added favorite photo model and join table to connect user and photo
+* added pagination to main page
+* Added search function to header
+* Added more styling including header and form styling
+* Added user authorization through cancancan
+* Added paperclip gem and file upload - changed from photo URL to file upload
+* Used figaro gem to test paperclip in development environment
+* Deployed to Heroku
+* used environment variables to hide AWS keys when in production
+* Refactored during pair programming
 
-* System dependencies
+# Unresolved
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Add flexbox to the main display on the index page so that it resizes correctly when screen is resized.
+* Add zclipboard gem functionality to a copy image URL button.
+* Used old CSS to make clear search link look like a regular form button - need to style all submit buttons the same so that CSS validates
+* Needs more styling

@@ -23,7 +23,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = current_user.photos.create!(photo_params)
-    redirect_to photo_path(@photo)
+    redirect_to @photo
   end
 
   def edit
@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
 
   def update
     @photo.update(photo_params)
-    redirect_to photo_path(@photo)
+    redirect_to @photo
   end
 
   def destroy
@@ -48,13 +48,11 @@ class PhotosController < ApplicationController
   end
 
   def add_favorite
-    @user = current_user
     FavoritePhoto.create(user: current_user, photo_id: params[:id])
     redirect_to @photo
   end
 
   def remove_favorite
-    @user = current_user
     entry = FavoritePhoto.where(user: current_user, photo_id: params[:id])
     entry.destroy_all
     redirect_to @photo

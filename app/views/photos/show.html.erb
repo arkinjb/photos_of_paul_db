@@ -37,11 +37,11 @@
     <% end %>
   </ul>
 
-    <div class="new_comment_container" >
-      <!-- hide form if can't comment, didn't use current_user logic in case of potential anonymous user implementation -->
-      <% if can? :create, Comment %>
-        <%= render "comments/form" %>
-      <% end %>
-    </div>
+  <div class="new_comment_container" >
+    <!-- hide form if can't comment, didn't use current_user logic in case of potential anonymous user implementation -->
+    <% if can? :create, Comment %>
+      <%= render "comments/form" %>
+    <% end %>
+  </div>
 
 </div> <!-- end of comment container div -->
