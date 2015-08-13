@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # this line is getting pretty long, I might consider breaking this out into
+    # a method / named scope on the AR Model
     @favorite_photos = @user.favorite_photos.all.order("created_at DESC").paginate(page: params[:page], per_page: 40)
     @photos = Photo.all
   end

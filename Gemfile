@@ -50,6 +50,8 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+# notice that your group production is nested inside your group dev, test...
+# this sould be un-nested!
 group :production do
   gem 'rails_12factor'
 end

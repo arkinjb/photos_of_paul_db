@@ -1,9 +1,10 @@
+# good job with your routes! They are logical and nice and clean!
 Rails.application.routes.draw do
 
   root to: "photos#index"
 
   resources :users
-  
+
   resources :photos do
     resources :comments
     member do
@@ -12,10 +13,12 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'signup', to: 'users#new'
-  get 'signin', to: 'sessions#new'
-  post 'signin', to: 'sessions#create'
-  delete 'signout', to: 'sessions#destroy'
+  # one suggestion for blocks like this is to use indents to align for
+  # readability, like so:
+  get     'signup',   to: 'users#new'
+  get     'signin',   to: 'sessions#new'
+  post    'signin',   to: 'sessions#create'
+  delete  'signout',  to: 'sessions#destroy'
 
 
 end
