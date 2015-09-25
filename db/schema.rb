@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20150806173826) do
   add_index "comments", ["photo_id"], name: "index_comments_on_photo_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  # the name of this join model isn't bad, but I feel like 'favorites' or
+  # 'photo_favorites' better describes the contents, since this table doesn't
+  # hold photos, but rather favorites.
   create_table "favorite_photos", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "photo_id"
@@ -39,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150806173826) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
+    # since you switched to paperclip you should remove this column, right?
     t.string   "photo_url"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false

@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   def new
   end
 
+  # very minor detail, but the blank line shouldn't be there!
   def create
 
     @comment = current_user.comments.create!(comment_params)

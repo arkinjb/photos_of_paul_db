@@ -7,6 +7,9 @@ bob = User.create!(username: "bob", password_digest: "#{User.digest('bob')}", na
 sally = User.create!(username: "sally", password_digest: "#{User.digest('sally')}", name: "Sally Johnson", admin: false, email: "sally@yahoo.com")
 dylan = User.create!(username: "dylan", password_digest: "#{User.digest('joe')}", name: "Dylan Beekler", admin: false, email: "dylan@yahoo.com")
 
+# your seed data is broken since you switched to Paperclip....
+# figure this was a matter of having enough time, but here's a tip to get you
+# started doing seed data w/ paperclip: http://stackoverflow.com/questions/6450207/how-to-use-seed-data-with-paperclip-s3
 rudd = jared.photos.create!(title: "Paul Rudd", photo_url: "http://www.circlecinema.com/wp-content/uploads/2012/12/paul-rudd-0.jpg")
 biya = jared.photos.create!(title: "Paul Biya", photo_url: "https://pbs.twimg.com/profile_images/494451373396611072/pOOKc53J.jpeg")
 chris = sally.photos.create!(title: "Chris Paul", photo_url: "http://l1.yimg.com/bt/api/res/1.2/5YMpUh_XXlEaEfbarT7pyg--/YXBwaWQ9eW5ld3M7aWw9cGxhbmU7cT03NTt3PTYwMA--/http://media.zenfs.com/en/person/Ysports/chris-paul-basketball-headshot-photo.jpg")

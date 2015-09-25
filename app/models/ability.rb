@@ -6,7 +6,9 @@ class Ability
     user ||= User.new # creates new record for guest user (not logged in)
     if user.admin?
       can :manage, :all
+    # just a tip that `!user.new_record?` would be more consise here...
     elsif !user.username.nil? # if user is logged in
+      # these are nice and succinct ability definitions, nice job!
       can :read, :all
       can :create, [Photo, Comment]
       can [:update, :destroy], [Photo, Comment], :user_id => user.id
